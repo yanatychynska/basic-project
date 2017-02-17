@@ -9,7 +9,6 @@ package com.sqa.yt.helpers;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.*;
-import org.testng.log4testng.*;
 
 /**
  * BasicPage //ADDD (description of class)
@@ -24,47 +23,8 @@ import org.testng.log4testng.*;
  */
 public class BasicPage extends Core {
 
-	private WebDriver driver;
-
-	private Logger log;
-
 	public BasicPage(WebDriver driver) {
-		this.driver = driver;
+		super(driver);
 		PageFactory.initElements(driver, this);
-		this.getLog(Logger.getLogger(BasicPage.class));
-	}
-
-	/**
-	 * @return
-	 */
-	public WebDriver getDriver() {
-		return this.driver;
-	}
-
-	/**
-	 * @return the log
-	 */
-	public Logger getLog() {
-		return this.log;
-	}
-
-	/**
-	 * @param log
-	 *            the log to set
-	 */
-	public void getLog(Logger log) {
-		this.log = log;
-	}
-
-	public boolean isElementPresent(By by) {
-		return AutoBasics.isElementPresent(getDriver(), by);
-	}
-
-	public void setDriver(WebDriver driver) {
-		this.driver = driver;
-	}
-
-	public boolean takeScreenshot(String name) {
-		return AutoBasics.takeScreenShot(getDriver(), name);
 	}
 }
